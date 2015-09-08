@@ -1,1 +1,8 @@
-<h2>ShaiK likes to over-react</h2>
+<div>
+    <form action="#">
+        <input onChange={this.onNameChange}
+               type="text"
+               value={this.state.name} />
+    </form>
+    <h2>{this.state.name} makes ShaiK over-react</h2>
+</div>
