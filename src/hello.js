@@ -7,9 +7,11 @@ define(['react', 'lodash', './hello.rt.js'], function (React, _, template) {
     function getQueryParamsMap() {
         var result = getEmptyMap();
 
-        var queryParamsString = location.search.substr(1);
-        var queryParamsPairs = queryParamsString.split('&');
-        queryParamsPairs.forEach(function(pair) {
+        location
+          .search
+          .substr(1)
+          .split('&')
+          .forEach(function(pair) {
             var splitPair = pair.split('=');
             result[splitPair[0]] = splitPair[1];
         });
