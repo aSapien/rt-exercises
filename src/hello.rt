@@ -1,15 +1,25 @@
+<rt-require dependency="./inputItem.js" as="InputItem"/>
 <div>
-    <h3>Exercize 4</h3>
-    <p>Create a panel that has two numeric input fields: lat and long. The panel should also display the text ShaiK is over-reacting at (long,lat), where long and lat are the values provided in the form. This needs to be implemented in such a way that both long and lat are properties of a location object in the component state, e.g. this.state.location.long. Implement this panel using ReactLink.</p>
-    <form action="#">
-        <label>Lat
+    <h3>Exercize 5</h3>
+    <p>Create a panel that contains a form.
+        Adding fields to the form should not require changing code in the panel (i.e., you can add fields dynamically in the rendered template).
+        The value of the form fields should be output to the Dev Console whenever that field value changes (just that field, not all the fields every time.)</p>
+    <form action="">
+        <label>Label
             <input type="text"
-                   valueLink={this.linkState('location.lat')} />
+                   valueLink={this.linkState('label')} />
         </label>
-        <label>Long
+        <label>Type
             <input type="text"
-                   valueLink={this.linkState('location.long')} />
+                   valueLink={this.linkState('type')} />
         </label>
+        <label>Value (optional)
+            <input type="text"
+                   valueLink={this.linkState('value')} />
+        </label>
+        <input type="submit" onClick="{this.submitNewInput}">
     </form>
-    <h2>ShaiK is over-reacting at ({this.state.location.lat},{this.state.location.long})</h2>
+    <div rt-repeat="singleInput in this.currentInputs">
+        <InputItem rt-props="singleInput" newValueHandler="{this.printValue}"></InputItem>
+    </div>
 </div>
