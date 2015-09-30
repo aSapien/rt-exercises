@@ -1,37 +1,17 @@
-define(['react', 'lodash', './hello.rt.js'], function (React, _, template) {
+define(['react', 'lodash', './hello.rt.js', './linkedDeepStateMixin.js'], function (React, _, template, linkedDeepStateMixin) {
     'use strict';
-    function getEmptyMap() {
-        return Object.create(null);
-    }
-
-    function getQueryParamsMap() {
-        var result = getEmptyMap();
-
-        location
-          .search
-          .substr(1)
-          .split('&')
-          .forEach(function(pair) {
-            var splitPair = pair.split('=');
-            result[splitPair[0]] = splitPair[1];
-        });
-
-        return result;
-    }
 
     return React.createClass({
+        mixins: [linkedDeepStateMixin.LinkedDeepStateMixin],
         getInitialState: function () {
-            var queryParams = getQueryParamsMap();
-
             return {
-                name: queryParams.name || 'Dima'
-            }
+                location: {
+                    lat: 0,
+                    lon: 0
+                }
+            };
         },
-        onNameChange: function (event) {
-            event.preventDefault();
-            this.state.name = event.target.value;
-            this.setState({name: this.state.name});
-        },
+
         displayName: 'Hello',
         render: template
     });

@@ -1,8 +1,15 @@
 <div>
+    <h3>Exercize 4</h3>
+    <p>Create a panel that has two numeric input fields: lat and long. The panel should also display the text ShaiK is over-reacting at (long,lat), where long and lat are the values provided in the form. This needs to be implemented in such a way that both long and lat are properties of a location object in the component state, e.g. this.state.location.long. Implement this panel using ReactLink.</p>
     <form action="#">
-        <input onChange={this.onNameChange}
-               type="text"
-               value={this.state.name} />
+        <label>Lat
+            <input type="text"
+                   valueLink={this.linkState('location.lat')} />
+        </label>
+        <label>Long
+            <input type="text"
+                   valueLink={this.linkState('location.long')} />
+        </label>
     </form>
-    <h2>{this.state.name} makes ShaiK over-react</h2>
+    <h2>ShaiK is over-reacting at ({this.state.location.lat},{this.state.location.long})</h2>
 </div>
