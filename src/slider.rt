@@ -1,0 +1,3 @@
+<label>{this.props.label}
+    <input type="range" value="{this.props.value}" onChange="{this.props.onChange}" />
+</label>

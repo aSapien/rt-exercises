@@ -1,0 +1,3 @@
+<div style="border:1px solid;" rt-props="this.props">
+    {this.props.children}
+</div>

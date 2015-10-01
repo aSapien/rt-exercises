@@ -1,13 +1,39 @@
-<rt-require dependency="reusableDiv" as="ReusableDiv" xmlns="http://www.w3.org/1999/html"/>
+<rt-require dependency="panel" as="Panel" />
+<rt-require dependency="slider" as="Slider" />
 <div>
-    <h3>Exercize 7</h3>
+    <h3>Exercize 8</h3>
     <p>
-        Create panel that behaves like a &lt;div&gt; and can be reused by React components.
-        That panel will have a button that is always align with its bottom-right corner.
-        A containing React component will be able to pass style properties to the panel.
+        Create a panel with slider that sets the height of the panel,
+        and another slider that sets the vertical padding of the panel.
+        Preferably implement this without custom code in the component.
     </p>
 
-    <ReusableDiv style="border:1px solid;height:200px;width:200px;" >
-        <h5>Transcluded comp</h5>
-    </ReusableDiv>
+    <Slider label="Height" onChange="{this.onPanelHeightChange}" /><br/>
+    <Slider label="Padding" onChange="{this.onPanelPaddingChange}"/>
+
+    <Panel style="height:{this.state.panel.height + 'px'};
+                  padding:0 {this.state.panel.horizontalPadding + 'px'};
+                  overflow:hidden;" >
+        <p>
+            Lorem ipsum dolor sit amet, lorem consul cum ut, pri id aeterno disputationi. Semper diceret mandamus per cu. Ad oratio dolorum dignissim vix, convenire signiferumque has cu, sit ex facete nostrum interesset. Ea etiam expetendis deterruisset pri.
+
+            Mea tation sensibus intellegebat ad. Viris percipit tractatos at has, nonumy impedit at per, his elit scripta adipisci ex. Ea clita solet mea, et porro petentium qui. Eam id inermis erroribus dignissim, elit constituto per in.
+
+            Vix natum dicunt timeam id, vix in audiam mentitum. Quo propriae accusata at, id malorum adversarium quo, ullum delenit sensibus id vis. Est option dissentiunt efficiantur ex. Duo eu choro tacimates, ipsum noster incorrupte ea pri. Ex ceteros laboramus quo. Choro evertitur ad pri.
+
+            Ut laudem nostro ius. Ea sea inermis accusamus. At justo aliquam eum, sit quando fierent scaevola ex, aperiri probatus elaboraret pro te. Sea eu quem imperdiet, et vel malis omittam prodesset. Ad putent ponderum gloriatur quo. Sea ut viris choro tamquam, duo diam corpora ne.
+
+            Diam inermis comprehensam in cum. Mea et error praesent intellegat. Id mel mutat malorum. Purto clita offendit vis eu, liber reprimique reformidans te vix. Has an lorem forensibus complectitur, his ea labores quaestio. His ex facer nominavi, eruditi corpora ei quo.
+
+            Te eum decore legimus argumentum, ne solet accusamus quo. Per ne vide vitae, ex dolores torquatos sit. Ne eam propriae euripidis reprehendunt, at pro utinam ancillae. Eu nostrud ornatus accumsan duo.
+
+            Ius nobis molestie percipit no. Legere maiorum adversarium at vix, dicat tollit comprehensam te qui. Sed accusam philosophia at, mel at vide graece. Quo at modus necessitatibus, copiosae quaestio praesent pri ne.
+
+            Consul prodesset an per. Ius facer quaeque cu, soluta appareat maiestatis ut vim. Ut ius omnes aliquip, id mutat tollit utroque vim. Nisl percipit vis ad. Ea habeo adipisci delicatissimi vis, nisl accusam scribentur sit ei.
+
+            Et sed numquam maluisset. Id sea debet pertinacia efficiendi. Ad eam maluisset voluptaria deseruisse, id aliquam pericula pri, ex dictas offendit vel. Labores voluptatum usu in, maiorum forensibus nam eu. Id sea magna consul melius, quo id primis repudiandae.
+
+            Ea vel delenit probatus, mel nullam quodsi omittantur an. Facete accumsan eos in, graece graecis has in. Eu per prima congue, est unum assum theophrastus te. Ad fabulas mediocrem vis. Quo paulo solet rationibus te.
+        </p>
+    </Panel>
 </div>
