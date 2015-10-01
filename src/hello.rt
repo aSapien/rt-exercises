@@ -8,8 +8,15 @@
         Preferably implement this without custom code in the component.
     </p>
 
-    <Slider label="Height" onChange="{this.onPanelHeightChange}" /><br/>
-    <Slider label="Padding" onChange="{this.onPanelPaddingChange}"/>
+    <Slider label="Height"
+            onChange="{this.onPanelHeightChange}"
+            value="{this.state.panel.height}"
+            min="80" max="400" />
+    <br/>
+    <Slider label="Padding"
+            onChange="{this.onPanelPaddingChange}"
+            value="{this.state.panel.horizontalPadding}"
+            min="10" max="300" />
 
     <Panel style="height:{this.state.panel.height + 'px'};
                   padding:0 {this.state.panel.horizontalPadding + 'px'};

@@ -8,21 +8,21 @@ define(['react', 'lodash', './hello.rt.js', './linkedDeepStateMixin.js'], functi
         getInitialState: function () {
             return {
                 panel: {
-                    height: 200,
-                    horizontalPadding: 20
+                    height: 80,
+                    horizontalPadding: 10
                 }
             };
         },
 
         onPanelHeightChange: function (event) {
             this.setState(
-              {panel:{height: (event.target.value*2)}}
+              {panel:{height: (event.target.value)}}
             );
         },
 
         onPanelPaddingChange: function (event) {
             this.setState(
-              {panel:{horizontalPadding: (event.target.value*2)}}
+              {panel:{horizontalPadding: (event.target.value)}}
             );
         },
 
