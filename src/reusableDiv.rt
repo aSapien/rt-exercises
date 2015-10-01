@@ -1,0 +1,4 @@
+<div style="position: relative;" rt-props="this.props">
+    {this.props.children}
+    <button style="position: absolute; right: 10px; bottom: 10px;">Some Button</button>
+</div>

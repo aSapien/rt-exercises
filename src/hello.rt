@@ -1,32 +1,13 @@
+<rt-require dependency="reusableDiv" as="ReusableDiv" xmlns="http://www.w3.org/1999/html"/>
 <div>
-    <h3>Exercize 6</h3>
+    <h3>Exercize 7</h3>
     <p>
-        Create a panel for selecting country and city,
-        where the available cities are dependent on the selected country.
-        (Country/city information can be hard-coded).
-        Initially the country is not specified,
-        and the city list is empty.
-        A Submit button must only be enabled when
-        both country and city are selected,
-        and disabled otherwise.
+        Create panel that behaves like a &lt;div&gt; and can be reused by React components.
+        That panel will have a button that is always align with its bottom-right corner.
+        A containing React component will be able to pass style properties to the panel.
     </p>
-    <form action="">
-        <label>Country
-            <select name="country" valueLink={this.linkState('selected.country')} default="">
-                <option disabled selected />
-                <option rt-repeat="country in _.map(this.geos, 'country')"
-                        value="{country}">{country}
-                </option>
-            </select>
-        </label>
-        <label>City
-            <select name="city" valueLink={this.linkState('selected.city')}>
-                <option disabled selected />
-                <option rt-repeat="city in this.getCurrentCities()"
-                        value="{city}">{city}
-                </option>
-            </select>
-        </label>
-        <input type="submit" disabled="{!this.state.selected.city}">
-    </form>
+
+    <ReusableDiv style="border:1px solid;height:200px;width:200px;" >
+        <h5>Transcluded comp</h5>
+    </ReusableDiv>
 </div>
