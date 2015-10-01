@@ -1,37 +1,37 @@
-define(['react', 'lodash', './hello.rt.js'], function (React, _, template) {
+define(['react', 'lodash', './hello.rt.js', './linkedDeepStateMixin.js'], function (React, _, template, linkedDeepStateMixin) {
     'use strict';
 
 
     return React.createClass({
-        currentInputs: [
+        mixins: [linkedDeepStateMixin.LinkedDeepStateMixin],
+
+        geos: [
             {
-                label: 'Test Label',
-                type: 'text',
-                value: 'placeholder'
+                country: 'Israel',
+                cities: ['Ashdod', 'Ashkelon', 'Tel Aviv']
+            },
+            {
+                country: 'USA',
+                cities: ['New York', 'Chicago', 'San Francisco']
             }
         ],
 
-        mixins: [React.addons.LinkedStateMixin],
+        getCurrentCities: function () {
+            return _.result(_.find(this.geos, function (geo) {
+                  return geo.country === this.state.selected.country;
+              }, this), 'cities');
+        },
 
         getInitialState: function () {
             return {
-                label: '',
-                type: '',
-                value: ''
+                selected: {
+                    country: null,
+                    city: null
+                }
             };
         },
 
-        printValue: function (newValue) {
-            console.log(newValue);
-        },
-
-        submitNewInput: function (event) {
-            event.preventDefault();
-            this.currentInputs.push(this.state);
-            this.setState(this.getInitialState());
-        },
-
-        displayName: 'Hello',
+        displayName: 'CountriesSelect',
         render: template
     });
 });
