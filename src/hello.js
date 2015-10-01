@@ -15,15 +15,17 @@ define(['react', 'lodash', './hello.rt.js', './linkedDeepStateMixin.js'], functi
         },
 
         onPanelHeightChange: function (event) {
-            this.setState(
-              {panel:{height: (event.target.value)}}
-            );
+            this.setState({ panel: {
+                height: (event.target.value),
+                horizontalPadding: this.state.panel.horizontalPadding
+            }});
         },
 
         onPanelPaddingChange: function (event) {
-            this.setState(
-              {panel:{horizontalPadding: (event.target.value)}}
-            );
+            this.setState({ panel: {
+                horizontalPadding: (event.target.value),
+                height: this.state.panel.height
+            }});
         },
 
         displayName: 'ReusableDivContainer',

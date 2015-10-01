@@ -5,7 +5,7 @@ define(['react', 'lodash', './slider.rt', './linkedDeepStateMixin.js'], function
         mixins: [linkedDeepStateMixin.LinkedDeepStateMixin],
         getInitialState: function() {
           return {
-              value: 0
+              value: this.props.value
           }
         },
 
