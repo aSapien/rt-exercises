@@ -5,30 +5,36 @@ define(['react', 'lodash', './hello.rt.js', './linkedDeepStateMixin.js'], functi
     return React.createClass({
         mixins: [linkedDeepStateMixin.LinkedDeepStateMixin],
 
+        fontClasses: ['empty', 'futura', 'avant-garde', 'papyrus'],
+
+        setNextFontClass: function () {
+            this.state.currentFontClassIndex++;
+            this.setState({
+                currentFontClassIndex: this.fontClasses[this.state.currentFontClassIndex] ?
+                  this.state.currentFontClassIndex : 0
+            });
+        },
+
+        setPrevFontClass: function () {
+            this.state.currentFontClassIndex--;
+            this.setState({
+                currentFontClassIndex: this.fontClasses[this.state.currentFontClassIndex] ?
+                  this.state.currentFontClassIndex : this.fontClasses.length -1
+            });
+        },
+
+        getCurrentFontClass: function () {
+            return this.fontClasses[this.state.currentFontClassIndex];
+        },
+
         getInitialState: function () {
             return {
-                panel: {
-                    height: 80,
-                    horizontalPadding: 10
-                }
+                currentFontClassIndex: 0,
+                isUnderlined: false
             };
         },
 
-        onPanelHeightChange: function (event) {
-            this.setState({ panel: {
-                height: (event.target.value),
-                horizontalPadding: this.state.panel.horizontalPadding
-            }});
-        },
-
-        onPanelPaddingChange: function (event) {
-            this.setState({ panel: {
-                horizontalPadding: (event.target.value),
-                height: this.state.panel.height
-            }});
-        },
-
-        displayName: 'ReusableDivContainer',
+        displayName: 'Hello',
         render: template
     });
 });

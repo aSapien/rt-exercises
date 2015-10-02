@@ -1,0 +1,29 @@
+p {
+  &.futura {
+    font-family: Futura, 'Trebuchet MS', Arial, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  &.avant-garde {
+    font-family: 'Avant Garde', Avantgarde, 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  &.papyrus {
+    font-family: Papyrus, fantasy;
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+  &.empty {
+
+  }
+}

@@ -1,27 +1,27 @@
 <rt-require dependency="panel" as="Panel" />
-<rt-require dependency="slider" as="Slider" />
+<rt-require dependency="styledText" as="StyledText" />
 <div>
-    <h3>Exercize 8</h3>
+    <h3>Exercize 10</h3>
     <p>
-        Create a panel with slider that sets the height of the panel,
-        and another slider that sets the vertical padding of the panel.
-        Preferably implement this without custom code in the component.
+        Have a text with arrows on the left and right
+        that change the style of the text
+        (changes fonts, decorations, etc.).
+        Do it once using classes and once using styles.
     </p>
 
-    <Slider label="Height"
-            onChange="{this.onPanelHeightChange}"
-            value="{this.state.panel.height}"
-            min="80" max="400" />
-    <br/>
-    <Slider label="Padding"
-            onChange="{this.onPanelPaddingChange}"
-            value="{this.state.panel.horizontalPadding}"
-            min="10" max="300" />
-
-    <Panel style="height:{this.state.panel.height + 'px'};
-                  padding:0 {this.state.panel.horizontalPadding + 'px'};
+    <Panel style="height:250px;
+                  width:350px;
+                  padding:15px;
                   overflow:hidden;" >
-        <p>
+        <button onClick="{this.setPrevFontClass}">Prev Class</button>
+        <button onClick="{this.setNextFontClass}">Next Class</button><br/>
+        <label>Underline:
+            <input type="checkbox" checkedLink="{this.linkState('isUnderlined')}"/>
+        </label>
+        <h4>Font class: {this.getCurrentFontClass()}</h4>
+
+        <StyledText class="{this.getCurrentFontClass()}"
+                    style="text-decoration:{this.state.isUnderlined? 'underline': ''}">
             Lorem ipsum dolor sit amet, lorem consul cum ut, pri id aeterno disputationi. Semper diceret mandamus per cu. Ad oratio dolorum dignissim vix, convenire signiferumque has cu, sit ex facete nostrum interesset. Ea etiam expetendis deterruisset pri.
 
             Mea tation sensibus intellegebat ad. Viris percipit tractatos at has, nonumy impedit at per, his elit scripta adipisci ex. Ea clita solet mea, et porro petentium qui. Eam id inermis erroribus dignissim, elit constituto per in.
@@ -41,6 +41,6 @@
             Et sed numquam maluisset. Id sea debet pertinacia efficiendi. Ad eam maluisset voluptaria deseruisse, id aliquam pericula pri, ex dictas offendit vel. Labores voluptatum usu in, maiorum forensibus nam eu. Id sea magna consul melius, quo id primis repudiandae.
 
             Ea vel delenit probatus, mel nullam quodsi omittantur an. Facete accumsan eos in, graece graecis has in. Eu per prima congue, est unum assum theophrastus te. Ad fabulas mediocrem vis. Quo paulo solet rationibus te.
-        </p>
+        </StyledText>
     </Panel>
 </div>
